@@ -8,6 +8,9 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "engines": {
+    "node": ">=18.18.0"
+  },
   "dependencies": {
     "@azure/ai-projects": "^1.0.0-beta.3",
     "@azure/core-auth": "^1.9.0",
