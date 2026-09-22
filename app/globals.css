@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #090C14;
+  --foreground: #EDEDEE;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  overflow-x: hidden;
+  letter-spacing: -0.01em;
+}
+
+/* Clean Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Markdown typography in AI messages */
+.prose-synora {
+  color: #E2E8F0;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.prose-synora h1,
+.prose-synora h2,
+.prose-synora h3,
+.prose-synora h4 {
+  color: #FFFFFF;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-synora h1 { font-size: 1.4rem; }
+.prose-synora h2 { 
+  font-size: 1.2rem; 
+  padding-bottom: 0.35rem; 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+}
+.prose-synora h3 { 
+  font-size: 1.05rem; 
+  color: #38BDF8; 
+  font-weight: 700;
+}
+
+.prose-synora p {
+  margin-bottom: 0.85rem;
+}
+
+.prose-synora p:last-child {
+  margin-bottom: 0;
+}
+
+.prose-synora ul {
+  list-style-type: none;
+  padding-left: 0.25rem;
+  margin-bottom: 0.85rem;
+  space-y: 0.4rem;
+}
+
+.prose-synora ul li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.4rem;
+}
+
+.prose-synora ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: -0.05rem;
+  color: #38BDF8;
+  font-size: 1.15rem;
+}
+
+.prose-synora ol {
+  list-style-type: decimal;
+  padding-left: 1.35rem;
+  margin-bottom: 0.85rem;
+}
+
+.prose-synora li {
+  margin-bottom: 0.35rem;
+}
+
+.prose-synora strong {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.prose-synora table {
+  width: 100%;
+  margin: 1.25rem 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.85rem;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #090D16;
+}
+
+.prose-synora th {
+  background: #111726;
+  color: #F1F5F9;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.prose-synora td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: #CBD5E1;
+}
+
+.prose-synora tr:last-child td {
+  border-bottom: none;
+}
+
+.prose-synora tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.prose-synora code {
+  background: #111728;
+  color: #A5B4FC;
+  padding: 0.2rem 0.45rem;
+  border-radius: 5px;
+  font-size: 0.88em;
+  font-family: 'JetBrains Mono', monospace;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+}
+
+.prose-synora pre {
+  background: #090D16;
+  padding: 1rem;
+  border-radius: 10px;
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 1rem 0;
+}
