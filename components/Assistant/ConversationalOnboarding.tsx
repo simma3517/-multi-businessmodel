@@ -73,9 +73,9 @@ export const ConversationalOnboarding: React.FC<ConversationalOnboardingProps> =
   };
 
   return (
-    <div className="relative flex-1 flex flex-col justify-center items-center px-4 sm:px-6 py-10 max-w-3xl mx-auto w-full min-h-[calc(100vh-40px)]">
+    <div className="relative flex-1 flex flex-col justify-center items-center px-4 sm:px-6 py-10 max-w-3xl mx-auto w-full max-w-full min-h-[calc(100vh-40px)] overflow-hidden">
       {/* Ambient background glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[320px] bg-gradient-to-tr from-indigo-600/12 via-cyan-500/10 to-emerald-500/8 blur-[100px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[550px] h-[320px] bg-gradient-to-tr from-indigo-600/12 via-cyan-500/10 to-emerald-500/8 blur-[100px] pointer-events-none rounded-full" />
 
       <div className="relative w-full space-y-8 text-center animate-fade-in z-10">
         {/* Top Tag */}

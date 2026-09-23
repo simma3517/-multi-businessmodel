@@ -33,12 +33,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onSelectTab }) => {
           >
             Architecture
           </button>
-          <button
-            onClick={() => onSelectTab?.("specialists")}
+          <a
+            href="#specialists"
             className="hover:text-white transition-colors cursor-pointer"
           >
             5 Specialists
-          </button>
+          </a>
         </nav>
 
         {/* Launch Action */}

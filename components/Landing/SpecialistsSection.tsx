@@ -22,6 +22,10 @@ interface Specialist {
   sampleQuery: string;
   icon: any;
   color: string;
+  borderColor: string;
+  borderHover: string;
+  badgeBg: string;
+  cardGlow: string;
 }
 
 const SPECIALISTS: Specialist[] = [
@@ -40,6 +44,10 @@ const SPECIALISTS: Specialist[] = [
     sampleQuery: "Why are my sales falling despite high marketing spend?",
     icon: TrendingUp,
     color: "text-rose-400",
+    borderColor: "border-rose-500/40",
+    borderHover: "hover:border-rose-500/40",
+    badgeBg: "bg-rose-500/10",
+    cardGlow: "shadow-[0_0_30px_-10px_rgba(244,63,94,0.18)]",
   },
   {
     id: "finance",
@@ -56,6 +64,10 @@ const SPECIALISTS: Specialist[] = [
     sampleQuery: "Why is net profit decreasing while revenue is growing?",
     icon: CircleDollarSign,
     color: "text-emerald-400",
+    borderColor: "border-emerald-500/40",
+    borderHover: "hover:border-emerald-500/40",
+    badgeBg: "bg-emerald-500/10",
+    cardGlow: "shadow-[0_0_30px_-10px_rgba(16,185,129,0.18)]",
   },
   {
     id: "inventory",
@@ -72,6 +84,10 @@ const SPECIALISTS: Specialist[] = [
     sampleQuery: "Which high-margin products need immediate inventory attention?",
     icon: Package,
     color: "text-amber-400",
+    borderColor: "border-amber-500/40",
+    borderHover: "hover:border-amber-500/40",
+    badgeBg: "bg-amber-500/10",
+    cardGlow: "shadow-[0_0_30px_-10px_rgba(245,158,11,0.18)]",
   },
   {
     id: "support",
@@ -88,6 +104,10 @@ const SPECIALISTS: Specialist[] = [
     sampleQuery: "What are the primary support complaints driving customer churn?",
     icon: Headphones,
     color: "text-cyan-400",
+    borderColor: "border-cyan-500/40",
+    borderHover: "hover:border-cyan-500/40",
+    badgeBg: "bg-cyan-500/10",
+    cardGlow: "shadow-[0_0_30px_-10px_rgba(6,182,212,0.18)]",
   },
   {
     id: "hr",
@@ -104,6 +124,10 @@ const SPECIALISTS: Specialist[] = [
     sampleQuery: "How is employee attendance and team workload impacting delivery?",
     icon: Users,
     color: "text-indigo-400",
+    borderColor: "border-indigo-500/40",
+    borderHover: "hover:border-indigo-500/40",
+    badgeBg: "bg-indigo-500/10",
+    cardGlow: "shadow-[0_0_30px_-10px_rgba(99,102,241,0.18)]",
   },
 ];
 
@@ -114,12 +138,12 @@ export const SpecialistsSection: React.FC = () => {
   const Icon = activeSpecialist.icon;
 
   return (
-    <section id="specialists" className="py-20 border-t border-[#1A2234] bg-[#080A10]/60 relative">
+    <section id="specialists" className="py-16 sm:py-20 border-t border-[#1A2234] bg-[#080A10]/60 relative overflow-hidden w-full max-w-full">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0E1524] border border-[#1E2D44] text-[11px] font-mono text-cyan-400">
-            <Sparkles className="w-3 h-3" />
+            <Sparkles className="w-3 h-3 text-cyan-400" />
             <span>Autonomous Domain Specialists</span>
           </div>
 
@@ -136,7 +160,7 @@ export const SpecialistsSection: React.FC = () => {
         </div>
 
         {/* 2-Column Clean Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6 items-start">
           {/* Left: 5 Agent Selection Tabs */}
           <div className="md:col-span-5 space-y-2">
             {SPECIALISTS.map((spec) => {
@@ -146,35 +170,35 @@ export const SpecialistsSection: React.FC = () => {
                 <button
                   key={spec.id}
                   onClick={() => setActiveId(spec.id)}
-                  className={`w-full text-left p-3.5 rounded-xl transition-all flex items-center justify-between ${
+                  className={`w-full text-left p-3 sm:p-3.5 rounded-xl transition-all flex items-center justify-between cursor-pointer ${
                     isActive
-                      ? "bg-[#141A29] text-white border border-[#27354F] shadow-md"
-                      : "bg-[#0C101A] text-slate-400 hover:bg-[#111726] hover:text-slate-200 border border-[#1A2234]"
+                      ? `bg-[#141A29] text-white border ${spec.borderColor} shadow-md`
+                      : `bg-[#0C101A] text-slate-400 hover:bg-[#111726] hover:text-slate-200 border border-[#1A2234] ${spec.borderHover}`
                   }`}
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
                     <div
-                      className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                      className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
                         isActive
-                          ? "bg-white/10 text-white"
+                          ? `${spec.badgeBg} text-white`
                           : "bg-white/5 text-slate-400"
                       }`}
                     >
-                      <SpecIcon className={`w-4 h-4 ${isActive ? spec.color : ""}`} />
+                      <SpecIcon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${isActive ? spec.color : ""}`} />
                     </div>
-                    <div>
-                      <div className="text-xs font-bold text-white">
+                    <div className="min-w-0 flex-1">
+                      <div className="text-xs font-bold text-white truncate">
                         {spec.name}
                       </div>
-                      <div className="text-[11px] text-slate-400 line-clamp-1">
+                      <div className="text-[11px] text-slate-400 truncate">
                         {spec.role}
                       </div>
                     </div>
                   </div>
 
                   <ArrowRight
-                    className={`w-3.5 h-3.5 transition-opacity ${
-                      isActive ? "text-cyan-400 opacity-100" : "opacity-0"
+                    className={`w-3.5 h-3.5 shrink-0 ml-2 transition-all ${
+                      isActive ? `${spec.color} opacity-100 translate-x-0.5` : "opacity-0"
                     }`}
                   />
                 </button>
@@ -182,19 +206,23 @@ export const SpecialistsSection: React.FC = () => {
             })}
           </div>
 
-          {/* Right: Active Specialist Detailed Card */}
+          {/* Right: Active Specialist Detailed Card with dynamic matching border */}
           <div className="md:col-span-7">
-            <div className="p-6 rounded-2xl bg-[#0C101A] border border-[#1E273A] space-y-5 shadow-xl">
-              <div className="flex items-center justify-between pb-3.5 border-b border-[#1A2234]">
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-[#141B2B] border border-[#25334D] flex items-center justify-center text-white shadow-sm">
+            <div
+              className={`p-4 sm:p-6 rounded-2xl bg-[#0C101A] border transition-all duration-300 space-y-4 sm:space-y-5 ${activeSpecialist.borderColor} ${activeSpecialist.cardGlow}`}
+            >
+              <div className="flex items-center justify-between pb-3.5 border-b border-[#1A2234] gap-2">
+                <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                  <div
+                    className={`w-8 h-8 sm:w-9 sm:h-9 rounded-xl ${activeSpecialist.badgeBg} border ${activeSpecialist.borderColor} flex items-center justify-center shadow-sm shrink-0`}
+                  >
                     <Icon className={`w-4 h-4 ${activeSpecialist.color}`} />
                   </div>
-                  <div>
-                    <h3 className="text-sm font-bold text-white">
+                  <div className="min-w-0">
+                    <h3 className="text-xs sm:text-sm font-bold text-white truncate">
                       {activeSpecialist.name}
                     </h3>
-                    <span className="text-[10px] font-mono text-cyan-400">
+                    <span className={`text-[10px] font-mono font-medium truncate block ${activeSpecialist.color}`}>
                       Autonomous Domain Node
                     </span>
                   </div>
@@ -202,7 +230,7 @@ export const SpecialistsSection: React.FC = () => {
 
                 <Link
                   href={`/assistant?prompt=${encodeURIComponent(activeSpecialist.sampleQuery)}`}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-[#5B6BF6] to-[#00A3E0] hover:from-[#4F5FE8] hover:to-[#0092CC] text-white text-xs font-semibold shadow-sm transition-all"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-[#5B6BF6] to-[#00A3E0] hover:from-[#4F5FE8] hover:to-[#0092CC] text-white text-xs font-semibold shadow-sm hover:scale-[1.02] active:scale-[0.98] transition-all shrink-0"
                 >
                   <span>Ask Agent</span>
                   <ArrowRight className="w-3 h-3" />
@@ -218,7 +246,7 @@ export const SpecialistsSection: React.FC = () => {
                 </p>
               </div>
 
-              {/* Core Capabilities */}
+              {/* Core Capabilities with Specialist-themed checkmarks */}
               <div className="space-y-2 pt-1">
                 <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 block">
                   Domain Analysis Capabilities:
@@ -229,7 +257,9 @@ export const SpecialistsSection: React.FC = () => {
                       key={idx}
                       className="flex items-start gap-2 text-xs text-slate-300"
                     >
-                      <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
+                      <CheckCircle2
+                        className={`w-3.5 h-3.5 ${activeSpecialist.color} shrink-0 mt-0.5`}
+                      />
                       <span>{area}</span>
                     </div>
                   ))}
@@ -237,11 +267,11 @@ export const SpecialistsSection: React.FC = () => {
               </div>
 
               {/* Sample Query Link */}
-              <div className="pt-3 border-t border-[#1A2234] flex items-center justify-between text-xs">
-                <span className="text-[11px] text-slate-500 font-mono">Sample Query:</span>
+              <div className="pt-3 border-t border-[#1A2234] flex flex-col sm:flex-row sm:items-center justify-between text-xs gap-1 sm:gap-2">
+                <span className="text-[11px] text-slate-500 font-mono shrink-0">Sample Query:</span>
                 <Link
                   href={`/assistant?prompt=${encodeURIComponent(activeSpecialist.sampleQuery)}`}
-                  className="text-cyan-400 hover:text-cyan-300 font-medium text-xs truncate max-w-[280px]"
+                  className={`${activeSpecialist.color} hover:underline font-medium text-xs truncate max-w-full sm:max-w-[280px]`}
                 >
                   &ldquo;{activeSpecialist.sampleQuery}&rdquo;
                 </Link>

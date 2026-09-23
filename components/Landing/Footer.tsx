@@ -10,8 +10,8 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onSelectTab }) => {
   return (
-    <footer className="w-full border-t border-[#1A2234] py-6 px-4 sm:px-6 lg:px-8 bg-[#080A10]/95 backdrop-blur-md text-slate-400 text-xs">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <footer className="w-full border-t border-[#1A2234] py-6 px-4 sm:px-6 lg:px-8 bg-[#080A10]/95 backdrop-blur-md text-slate-400 text-xs w-full max-w-full overflow-hidden">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
         {/* Brand & Copyright */}
         <div className="flex items-center gap-2.5">
           <div className="w-5 h-5 rounded-md bg-[#101726] border border-[#1E293B] flex items-center justify-center text-cyan-400">
@@ -26,34 +26,22 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab }) => {
         </div>
 
         {/* Footer Links */}
-        <div className="flex flex-wrap items-center gap-6 text-slate-400 text-xs">
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-slate-400 text-xs">
           <Link href="/assistant" className="hover:text-white transition-colors">
             AI Assistant
           </Link>
           <button
-            onClick={() => onSelectTab?.("orchestration")}
+            onClick={() => onSelectTab?.("architecture")}
             className="hover:text-white transition-colors cursor-pointer"
           >
-            Orchestration
+            Architecture
           </button>
-          <button
-            onClick={() => onSelectTab?.("specialists")}
+          <a
+            href="#specialists"
             className="hover:text-white transition-colors cursor-pointer"
           >
             5 Specialists
-          </button>
-          <button
-            onClick={() => onSelectTab?.("workflow")}
-            className="hover:text-white transition-colors cursor-pointer"
-          >
-            Workflow
-          </button>
-          <button
-            onClick={() => onSelectTab?.("scenarios")}
-            className="hover:text-white transition-colors cursor-pointer"
-          >
-            Scenarios
-          </button>
+          </a>
         </div>
       </div>
     </footer>

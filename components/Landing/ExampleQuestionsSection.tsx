@@ -83,7 +83,7 @@ export const ExampleQuestionsSection: React.FC = () => {
           {questions.map((q, index) => (
             <Link
               key={index}
-              href={`/workspace?prompt=${encodeURIComponent(q.text)}`}
+              href={`/assistant?prompt=${encodeURIComponent(q.text)}`}
               className="group p-6 rounded-3xl bg-gradient-to-b from-[#111728] to-[#0A0E17] border border-white/[0.08] hover:border-indigo-500/40 flex flex-col justify-between space-y-4 shadow-xl hover:-translate-y-1 transition-all duration-200"
             >
               <div className="space-y-3.5">

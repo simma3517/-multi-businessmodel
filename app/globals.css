@@ -7,11 +7,23 @@
   --foreground: #EDEDEE;
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
-  overflow-x: hidden;
   letter-spacing: -0.01em;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Clean Custom Scrollbars */
@@ -38,6 +50,9 @@ body {
   color: #E2E8F0;
   font-size: 1rem;
   line-height: 1.75;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
 }
 
 .prose-synora h1,
@@ -75,7 +90,6 @@ body {
   list-style-type: none;
   padding-left: 0.25rem;
   margin-bottom: 0.85rem;
-  space-y: 0.4rem;
 }
 
 .prose-synora ul li {
@@ -109,13 +123,16 @@ body {
 }
 
 .prose-synora table {
+  display: block;
   width: 100%;
+  max-width: 100%;
   margin: 1.25rem 0;
   border-collapse: separate;
   border-spacing: 0;
   font-size: 0.85rem;
   border-radius: 10px;
-  overflow: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: #090D16;
 }
@@ -151,6 +168,7 @@ body {
   font-size: 0.88em;
   font-family: 'JetBrains Mono', monospace;
   border: 1px solid rgba(99, 102, 241, 0.25);
+  word-break: break-all;
 }
 
 .prose-synora pre {
@@ -158,6 +176,7 @@ body {
   padding: 1rem;
   border-radius: 10px;
   overflow-x: auto;
+  max-width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.1);
   margin: 1rem 0;
 }

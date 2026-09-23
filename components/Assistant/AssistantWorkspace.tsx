@@ -209,7 +209,7 @@ export const AssistantWorkspace: React.FC = () => {
 
   if (!isLoaded) {
     return (
-      <div className="h-screen w-screen bg-[#080A10] flex flex-col items-center justify-center text-slate-400 text-sm font-mono space-y-3">
+      <div className="h-screen h-[100dvh] w-full max-w-full overflow-hidden bg-[#080A10] flex flex-col items-center justify-center text-slate-400 text-sm font-mono space-y-3">
         <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-indigo-500 to-cyan-500 p-[1px] animate-pulse">
           <div className="w-full h-full bg-[#080A10] rounded-[7px]" />
         </div>
@@ -219,7 +219,7 @@ export const AssistantWorkspace: React.FC = () => {
   }
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-[#080A10] text-slate-100 font-sans selection:bg-slate-700 selection:text-white">
+    <div className="flex h-screen h-[100dvh] w-full max-w-full overflow-hidden bg-[#080A10] text-slate-100 font-sans selection:bg-slate-700 selection:text-white">
       {/* Sidebar (Minimizable / Closeable) */}
       <AssistantSidebar
         conversations={conversations}

@@ -82,7 +82,7 @@ export const AgentMeshSection: React.FC = () => {
   return (
     <section id="specialists" className="py-20 md:py-28 border-t border-[#1A2234] bg-[#080A10]/95 relative overflow-hidden">
       {/* Central radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-r from-indigo-500/10 via-cyan-500/10 to-transparent blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[600px] h-[350px] bg-gradient-to-r from-indigo-500/10 via-cyan-500/10 to-transparent blur-[140px] pointer-events-none -z-10" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
         {/* Section Header */}
