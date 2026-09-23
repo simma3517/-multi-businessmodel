@@ -6,13 +6,10 @@ import { ArrowRight, Sparkles } from "lucide-react";
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="min-h-[calc(100dvh-130px)] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 text-center py-12 relative overflow-hidden w-full max-w-full">
-      {/* Subtle central radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[600px] h-[360px] bg-gradient-to-r from-indigo-500/15 via-cyan-500/10 to-transparent blur-[140px] pointer-events-none -z-10" />
-
-      <div className="max-w-4xl mx-auto space-y-7">
+    <section className="min-h-[calc(100dvh-130px)] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 text-center py-12 relative w-full max-w-full">
+      <div className="max-w-4xl mx-auto space-y-7 relative z-10">
         {/* Top Tag Pill */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E1524] border border-[#1E2D44] text-xs font-mono text-cyan-400 shadow-sm">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E1524]/90 backdrop-blur-md border border-[#1E2D44] text-xs font-mono text-cyan-400 shadow-sm">
           <Sparkles className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
           <span className="tracking-wide">Instant Autonomous Enterprise Insights</span>
         </div>

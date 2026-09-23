@@ -10,6 +10,7 @@ import { ConversationalOnboarding } from "./ConversationalOnboarding";
 import { MessageItem } from "./MessageItem";
 import { AssistantAnalyzing } from "./AssistantAnalyzing";
 import { AssistantInput } from "./AssistantInput";
+import { AiMeshBackground } from "@/components/Landing/AiMeshBackground";
 
 const STORAGE_KEY = "synora_workspace_convos_v2";
 
@@ -219,7 +220,10 @@ export const AssistantWorkspace: React.FC = () => {
   }
 
   return (
-    <div className="flex h-screen h-[100dvh] w-full max-w-full overflow-hidden bg-[#080A10] text-slate-100 font-sans selection:bg-slate-700 selection:text-white">
+    <div className="flex h-screen h-[100dvh] w-full max-w-full overflow-hidden bg-[#080A10] text-slate-100 font-sans selection:bg-slate-700 selection:text-white relative">
+      {/* Live Interactive AI Dots & Neural Mesh Background */}
+      <AiMeshBackground />
+
       {/* Sidebar (Minimizable / Closeable) */}
       <AssistantSidebar
         conversations={conversations}
@@ -232,7 +236,7 @@ export const AssistantWorkspace: React.FC = () => {
       />
 
       {/* Main Workspace Viewport (Expands to 100% when sidebar is closed) */}
-      <div className="flex-1 flex flex-col h-full min-w-0 overflow-hidden relative">
+      <div className="flex-1 flex flex-col h-full min-w-0 overflow-hidden relative z-10">
         <AssistantHeader
           isSidebarOpen={isSidebarOpen}
           onToggleSidebar={() => setIsSidebarOpen((prev) => !prev)}
@@ -240,7 +244,7 @@ export const AssistantWorkspace: React.FC = () => {
         />
 
         {/* Conversation Area or Onboarding */}
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex-1 overflow-y-auto relative z-10">
           {messages.length === 0 ? (
             <ConversationalOnboarding
               input={input}
